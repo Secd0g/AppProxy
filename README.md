@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="src-tauri/icons/128x128.png" width="92" height="92" alt="AppProxy icon">
+  <img src="128x128.png" width="92" height="92" alt="AppProxy icon">
 
   # AppProxy
 

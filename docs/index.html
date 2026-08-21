@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#101a2f" />
-    <meta name="description" content="AppProxy：为指定 Windows 应用单独配置代理，不接管整个系统。" />
-    <title>AppProxy — 只代理你选择的应用</title>
+    <meta name="description" content="AppProxy 0.4.1：为指定 Windows 应用单独配置 SOCKS5 代理，不接管整个系统。" />
+    <title>AppProxy 0.4.1 — 只代理你选择的应用</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./style.css?v=0.3.7-2" />
+    <link rel="stylesheet" href="./style.css?v=0.4.1" />
   </head>
   <body>
     <header class="nav shell">
@@ -30,7 +30,7 @@
         <div class="hero-copy">
           <div class="eyebrow"><span class="pulse"></span>为 Windows 应用设计的代理工具</div>
           <h1>只代理你<br /><em>选择的应用。</em></h1>
-          <p class="hero-lead">AppProxy 让每个应用拥有自己的网络规则。代理或直连，清晰可控，不改变系统设置。</p>
+          <p class="hero-lead">AppProxy 让每个应用拥有自己的网络规则。代理或直连，清晰可控，不改变系统设置。支持 WindowsApps 扫描、MSIX 应用启动和自动代理引擎。</p>
           <div class="hero-actions">
             <a class="button primary" href="https://github.com/Secd0g/AppProxy/releases" target="_blank" rel="noreferrer">下载 AppProxy <span>↓</span></a>
             <a class="button quiet" href="#how-it-works">了解它如何工作 <span>↘</span></a>
@@ -50,15 +50,15 @@
         </div>
       </section>
 
-      <section class="trust shell"><span>为你的工作流保持网络秩序</span><div><b>CHATGPT</b><b>CLAUDE</b><b>OBSIDIAN</b><b>CHROME</b><b>+ 更多应用</b></div></section>
+      <section class="trust shell"><span>为你的工作流保持网络秩序</span><div><b>CHATGPT</b><b>CLAUDE</b><b>OBSIDIAN</b><b>CHROME</b><b>WINDOWSAPPS</b><b>+ 更多应用</b></div></section>
 
-      <section class="section shell" id="features"><div class="section-label">01 / 核心能力</div><div class="section-intro"><h2>简单的控制，<br /><span>精确的分流。</span></h2><p>不用接管系统代理，也不用维护复杂的全局规则。AppProxy 把控制权交给你正在使用的应用。</p></div><div class="feature-grid"><article class="feature large"><div class="feature-number">01</div><h3>每个应用，独立规则</h3><p>为 ChatGPT、Claude、浏览器或其他 Windows 程序分别选择代理或直连。</p><div class="rule-demo"><span>ChatGPT</span><b>代理</b><span>→</span><strong>Clash / 7897</strong></div><div class="rule-demo"><span>Obsidian</span><b class="direct-label">直连</b><span>→</span><strong>本地网络</strong></div></article><article class="feature"><div class="feature-number">02</div><h3>不改变系统网络</h3><p>不创建 TUN 网卡，不修改 DNS、系统代理或路由表。其他应用照常工作。</p><div class="system-diagram"><span>AppProxy</span><i>↗</i><span class="highlight">目标应用</span><small>系统保持不变</small></div></article><article class="feature"><div class="feature-number">03</div><h3>连接状态清晰可见</h3><p>查看应用进程、活动连接、代理出口地区和访问延迟。</p><div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article></div></section>
+      <section class="section shell" id="features"><div class="section-label">01 / 核心能力</div><div class="section-intro"><h2>简单的控制，<br /><span>精确的分流。</span></h2><p>不用接管系统代理，也不用维护复杂的全局规则。AppProxy 把控制权交给你正在使用的应用。</p></div><div class="feature-grid"><article class="feature large"><div class="feature-number">01</div><h3>每个应用，独立规则</h3><p>为 ChatGPT、Claude、浏览器或其他 Windows 程序分别选择代理或直连。</p><div class="rule-demo"><span>ChatGPT</span><b>代理</b><span>→</span><strong>Clash / 7897</strong></div><div class="rule-demo"><span>Obsidian</span><b class="direct-label">直连</b><span>→</span><strong>本地网络</strong></div></article><article class="feature"><div class="feature-number">02</div><h3>不改变系统网络</h3><p>不创建 TUN 网卡，不修改 DNS、系统代理或路由表。其他应用照常工作。</p><div class="system-diagram"><span>AppProxy</span><i>↗</i><span class="highlight">目标应用</span><small>系统保持不变</small></div></article><article class="feature"><div class="feature-number">03</div><h3>扫描与启动更可靠</h3><p>扫描 MSIX/WindowsApps，解析应用真实路径；支持 Windows 10/11 全版本（含 LTSC），从 AppProxy 启动后自动开启代理引擎。</p><div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article></div></section>
 
-      <section class="dark-section" id="how-it-works"><div class="shell process"><div class="section-label light">02 / 工作方式</div><div class="process-heading"><h2>从启动那一刻起，<br /><em>规则才开始生效。</em></h2><p>AppProxy 使用本地转发组件，将代理设置精确交给目标应用。你不需要成为网络专家。</p></div><div class="steps"><div class="step"><span>01</span><h3>添加代理</h3><p>填写 Clash、Mihomo 或其他 SOCKS5 / Mixed 代理地址，一键测试。</p></div><div class="step-arrow">→</div><div class="step"><span>02</span><h3>选择应用</h3><p>拖入程序或快捷方式，为它设置独立的网络动作。</p></div><div class="step-arrow">→</div><div class="step"><span>03</span><h3>按规则启动</h3><p>从 AppProxy 打开应用，新的连接立即遵循你的规则。</p></div></div></div></section>
+      <section class="dark-section" id="how-it-works"><div class="shell process"><div class="section-label light">02 / 工作方式</div><div class="process-heading"><h2>从启动那一刻起，<br /><em>规则才开始生效。</em></h2><p>AppProxy 使用内置的 SOCKS5 本地中继引擎，将代理设置精确交给目标应用。启动应用时自动开启代理引擎，你不需要成为网络专家。</p></div><div class="steps"><div class="step"><span>01</span><h3>添加代理</h3><p>填写 Clash、Mihomo 或其他 SOCKS5 代理地址，一键测试。</p></div><div class="step-arrow">→</div><div class="step"><span>02</span><h3>选择应用</h3><p>拖入程序或快捷方式，为它设置独立的网络动作。</p></div><div class="step-arrow">→</div><div class="step"><span>03</span><h3>按规则启动</h3><p>从 AppProxy 打开应用，代理引擎自动启动，新的连接立即遵循你的规则。</p></div></div></div></section>
 
-      <section class="section shell final-section" id="faq"><div class="section-label">03 / 开始使用</div><div class="final-card"><div><h2>让网络规则<br /><em>回到应用本身。</em></h2><p>下载 AppProxy，给你的 Windows 工作流一个更清晰的网络边界。</p></div><a class="button primary" href="https://github.com/Secd0g/AppProxy/releases" target="_blank" rel="noreferrer">前往 GitHub 下载 <span>↗</span></a></div><div class="faq-row"><div><b>AppProxy 会影响其他应用吗？</b><span>不会。未配置的应用保持原有网络行为。</span></div><div><b>需要管理员权限吗？</b><span>启动或停止本地代理时需要确认 Windows UAC。</span></div><div><b>支持哪些代理？</b><span>支持 SOCKS5 和 Mixed 代理端口。</span></div></div></section>
+      <section class="section shell final-section" id="faq"><div class="section-label">03 / 开始使用</div><div class="final-card"><div><h2>让网络规则<br /><em>回到应用本身。</em></h2><p>下载 AppProxy，给你的 Windows 工作流一个更清晰的网络边界。</p></div><a class="button primary" href="https://github.com/Secd0g/AppProxy/releases" target="_blank" rel="noreferrer">前往 GitHub 下载 <span>↗</span></a></div><div class="faq-row"><div><b>AppProxy 会影响其他应用吗？</b><span>不会。未配置的应用保持原有网络行为。</span></div><div><b>需要管理员权限吗？</b><span>启动或停止本地代理时需要确认 Windows UAC。</span></div><div><b>支持哪些代理？</b><span>支持 SOCKS5 代理端口，启动应用时自动开启代理引擎。</span></div></div></section>
     </main>
 
-    <footer class="footer shell"><a class="brand" href="#top"><span class="brand-mark"><i></i><i></i><i></i></span><span>AppProxy</span></a><span>为每一个应用，保留选择的权利。</span><span class="mono">v0.3.7 · Windows</span></footer>
+    <footer class="footer shell"><a class="brand" href="#top"><span class="brand-mark"><i></i><i></i><i></i></span><span>AppProxy</span></a><span>为每一个应用，保留选择的权利。</span><span class="mono">v0.4.1 · Windows</span></footer>
   </body>
 </html>
